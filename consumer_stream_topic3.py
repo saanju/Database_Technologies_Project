@@ -10,7 +10,7 @@ spark = SparkSession.builder \
     .config("spark.jars.packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.0") \
     .getOrCreate()
 
-# Define UDF for extracting hashtags from comments
+# Define UDF for extracting hashtags from comments present in the comments
 @udf(returnType=StringType())
 def extract_hashtags(s):
     hashtags = re.findall(r'#(\w+)', s)
